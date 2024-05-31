@@ -52,10 +52,39 @@ function App() {
         </div>
 
         <div className="block lg:hidden w-1/6 lg:w-4/6">
-          <a href="#" className="link" id="mobile-menu" onClick={toggleMenu}>
-            Menu
-          </a>
-          <ul className={`mobile-links ${menuOpen ? '' : 'hidden'} w-full absolute z-50 left-0 text-center bg-gray-800`}>
+          <button onClick={toggleMenu} className="flex items-center">
+            <span className={!menuOpen ? 'text-white block font-bold' : 'hidden' }>Menú</span>
+            <span
+              className="text-white w-10 h-10 relative focus:outline-none "
+              onClick={toggleMenu}
+            >
+              <div className="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <span
+                  aria-hidden="true"
+                  className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
+                    menuOpen ? "rotate-45" : "-translate-y-1.5"
+                  }`}
+                ></span>
+                <span
+                  aria-hidden="true"
+                  className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
+                    menuOpen ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  aria-hidden="true"
+                  className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
+                    menuOpen ? "-rotate-45" : "translate-y-1.5"
+                  }`}
+                ></span>
+              </div>
+            </span>
+          </button>
+          <ul
+            className={`mobile-links ${
+              menuOpen ? "" : "hidden"
+            } w-full absolute z-50 left-0 text-center bg-gray-800`}
+          >
             <li>
               <a href="#" className="link">
                 Home
@@ -118,12 +147,7 @@ function App() {
           <div className="left bg-character-mario bg-no-repeat bg-contain bg-top w-5/6 md:w-1/2 pt-52">
             <div className="card text-center bg-white 2xl:w-5/6 mx-auto mt-72 rounded-2xl overflow-hidden xl:w-4/5">
               <div className="cover bg-black">
-                <video
-                  src="videos/video01.mp4"
-                  autoPlay
-                  loop
-                  muted
-                ></video>
+                <video src="videos/video01.mp4" autoPlay loop muted></video>
               </div>
               <div className="content bg-wave-pattern bg-repeat-x relative -top-3">
                 <h3 className="font-black text-4xl py-10">Play Together</h3>
@@ -154,12 +178,7 @@ function App() {
             </p>
             <div className="card text-center bg-white 2xl:w-5/6 mx-auto mt-16 rounded-2xl overflow-hidden xl:w-4/5">
               <div className="cover bg-black">
-                <video
-                  src="videos/video02.mp4"
-                  autoPlay
-                  loop
-                  muted
-                ></video>
+                <video src="videos/video02.mp4" autoPlay loop muted></video>
               </div>
               <div className="content bg-wave-pattern bg-repeat-x relative -top-3">
                 <h3 className="font-black text-4xl py-10">Explore</h3>

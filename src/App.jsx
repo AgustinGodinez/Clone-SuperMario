@@ -1,6 +1,13 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="w-[1920px] xsm:w-full mx-auto">
       <nav className="bg-gray-800 flex justify-between items-center lg:justify-start">
@@ -45,10 +52,10 @@ function App() {
         </div>
 
         <div className="block lg:hidden w-1/6 lg:w-4/6">
-          <a href="#" className="link" id="mobile-menu">
+          <a href="#" className="link" id="mobile-menu" onClick={toggleMenu}>
             Menu
           </a>
-          <ul className="mobile-links hidden w-full absolute z-50 left-0 text-center bg-gray-800">
+          <ul className={`mobile-links ${menuOpen ? '' : 'hidden'} w-full absolute z-50 left-0 text-center bg-gray-800`}>
             <li>
               <a href="#" className="link">
                 Home
